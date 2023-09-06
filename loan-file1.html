@@ -26,13 +26,18 @@
         h2 {
             /* text-align: center; */
         }
+
+        #container1 {
+            background-color: lightgray;
+            border-radius: 20px;
+        }
     </style>
 </head>
 
 <body>
 
 
-    <div class="container mt-5" style="background-color: lightgray;">
+    <div class="container mt-5" id="container1">
         <div>
             <div class="heading mb-4">
                 <h2>Start Your Journey</h2>
@@ -42,41 +47,43 @@
                     <div class="col-md-6 form-group">
                         <label for="Desired Loan">Desired Loan Amount</label><span style="color: red;">*</span>
                         <select id="desired" class="form-control">
-                            <option value="nocityenter">Select Desired Loan Amount</option>
-                            <option value="nocityenter">0-3L</option>
-                            <option value="nocityenter">3L-5L</option>
-                            <option value="nocityenter">5L-10L</option>
-                            <option value="nocityenter">More $ Above 10L</option>
+                            <option value="">Select Desired Loan Amount</option>
+                            <option value="">0-3L</option>
+                            <option value="">3L-5L</option>
+                            <option value="">5L-10L</option>
+                            <option value="">More $ Above 10L</option>
                         </select>
+                        <div class="error-message" id="desired-error">Please secect a desired loan amount</div>
                     </div>
 
                     <div class="col-md-6 form-group">
                         <label for="Monthly Income">Monthly Income</label><span style="color: red;">*</span>
-                        <select id="Monthly Salary" class="form-control">
-                            <option value="Select Monthly Income₹">Select Monthly Income₹</option>
-                            <option value="0 - ₹20,000">0 - ₹20,000</option>
-                            <option value="₹20,000 - 1L">₹20,000 - 1L</option>
-                            <option value="1L - 5 L">1L - 5L</option>
-                            <option value="5L - 10L">5L - 10L</option>
-                            <option value="10L - 15 L">10L - 15L</option>
-                            <option value="more $ above 15L">more $ above 15L</option>
+                        <select id="monthly" class="form-control">
+                            <option value="">Select Monthly Income₹</option>
+                            <option value="">0 - ₹20,000</option>
+                            <option value="">₹20,000 - 1L</option>
+                            <option value="">1L - 5L</option>
+                            <option value="">5L - 10L</option>
+                            <option value="">10L - 15L</option>
+                            <option value="">more $ above 15L</option>
                         </select>
+                        <div class="error-message" id="monthly-error">Please select monthly income</div>
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="col-md-6 form-group">
                         <label for="Tenure">Employment Status</label><span style="color: red;">*</span>
-                        <select id="Desired" class="form-control">
+                        <select id="employment" class="form-control">
                             <option value=""> Please Select</option>
                             <option value="">Salaried</option>
                             <option value="">Self Employed Business</option>
                             <option value="">Self Employed Professional</option>
                         </select>
-                        <div class="error-message" id="desired-error">Please enter a valid status</div>
+                        <div class="error-message" id="employment-error">Please select a status</div>
                     </div>
                     <div class="col-md-6 form-group">
                         <label for="Tenure">Tenure</label><span style="color: red;">*</span>
-                        <select id="Desired" class="form-control">
+                        <select id="tenure" class="form-control">
                             <option value="">Select</option>
                             <option value="">1 year</option>
                             <option value="">2 year</option>
@@ -84,9 +91,7 @@
                             <option value="">4 year</option>
                             <option value="">5 year</option>
                         </select>
-                        <div class="invalid-feedback">
-                            Please select a valid state.
-                        </div>
+                        <div class="error-message" id="tenure-error">Please select tenure</div>
                     </div>
                 </div>
                 <div class="form-row">
@@ -98,7 +103,7 @@
                     </div>
                     <div class="col-md-6 form-group">
                         <label for="phone_number">Phone Number</label><span style="color: red;">*</span>
-                        <input type="tel" name="phone_no" id="number" class="form-control"
+                        <input type="tel" name="phone_no" id="phone" class="form-control"
                             placeholder="Enter your phone number" required maxlength="10">
                         <div class="error-message" id="phone-error">Please enter a valid phone number.</div>
                     </div>
@@ -108,21 +113,22 @@
                         <label for="email-id">Email ID</label><span style="color: red;">*</span>
                         <input type="text" name="name" id="email" class="form-control" placeholder="Ex.abc@gmail.com">
                         <div class="error-message" id="email-error"> Enter a valid email. </div>
-
                     </div>
                     <div class="col-md-6 form-group">
                         <label for="email-id">Address</label><span style="color: red;">*</span>
-                        <input type="text" name="name" id="name" class="form-control" placeholder="Street Address"
+                        <input type="text" name="address" id="address" class="form-control" placeholder="Street Address"
                             required>
+                        <div class="error-message" id="address-error"> Enter your address </div>
+
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="col-md-6 form-group">
                         <label for="city">City</label><span style="color: red;">*</span>
-                        <input type="text" name="name" id="city" class="form-control" placeholder="Enter your city"
+                        <input type="text" name="city" id="city" class="form-control" placeholder="Enter your city"
                             required>
-                            <div class="error-message" id="city-error">Please enter the city</div>
-                    
+                        <div class="error-message" id="city-error">Please enter the city</div>
+
 
                     </div>
                     <div class="col-md-6 form-group">
@@ -167,49 +173,54 @@
                 </div>
                 <div class="form-row">
                     <div class="col-md-6 form-group">
-                        <label for="Bank">Select Bank Name</label><span style="color: red;">*</span>
-                        <select id="BankName" class="form-control">
-                            <option value="Select Bank ">Select Bank </option>
-                            <option value="Axis Bank">Axis Bank</option>
-                            <option value="Bandhan Bank">Bandhan Bank</option>
-                            <option value="Bank of Baroda">Bank of Baroda</option>
-                            <option value="Bank of India">Bank of India</option>
-                            <option value="Bank of Maharashtra">Bank of Maharashtra</option>
-                            <option value="Canara Bank">Canara Bank</option>
-                            <option value="Central Bank of India">Central Bank of India</option>
-                            <option value="CSB Bank">CSB Bank</option>
-                            <option value="City Union Bank">City Union Bank</option>
-                            <option value="DCB Bank">DCB Bank</option>
-                            <option value="Dhanlaxmi Bank">Dhanlaxmi Bank</option>
-                            <option value="Federal Bank">Federal Bank</option>
-                            <option value="HDFC Bank">HDFC Bank</option>
-                            <option value="Indian Bank">Indian Bank</option>
-                            <option value="Indian Overseas Bank">Indian Overseas Bank</option>
-                            <option value="ICICI Bank">ICICI Bank</option>
-                            <option value="IndusInd Bank">IndusInd Bank</option>
-                            <option value="IDBI Bank">IDBI Bank</option>
-                            <option value="IDFC FIRST Bank">IDFC FIRST Bank</option>
-                            <option value="Jammu &amp; Kashmir Bank">Jammu &amp; Kashmir Bank</option>
-                            <option value="Karnataka Bank">Karnataka Bank</option>
-                            <option value="Karur Vysya Bank">Karur Vysya Bank</option>
-                            <option value="Kotak Mahindra Bank">Kotak Mahindra Bank</option>
-                            <option value="Nainital bank">Nainital bank</option>
-                            <option value="Punjab and Sind Bank">Punjab and Sind Bank</option>
-                            <option value="Punjab National Bank">Punjab National Bank</option>
-                            <option value="State Bank of India">State Bank of India</option>
-                            <option value="UCO Bank">UCO Bank</option>
-                            <option value="Union Bank of India">Union Bank of India</option>
-                            <option value="RBL Bank">RBL Bank</option>
-                            <option value="South Indian Bank">South Indian Bank</option>
-                            <option value="Tamilnad Mercantile Bank">Tamilnad Mercantile Bank</option>
-                            <option value="YES Bank">YES Bank</option>
+                        <label for="bank">Select Bank Name</label><span style="color: red;">*</span>
+                        <select id="bank" class="form-control">
+                            <option value="">Select Bank </option>
+                            <option value="">Axis Bank</option>
+                            <option value="">Bandhan Bank</option>
+                            <option value="">Bank of Baroda</option>
+                            <option value="">Bank of India</option>
+                            <option value="">Bank of Maharashtra</option>
+                            <option value="">Canara Bank</option>
+                            <option value="">Central Bank of India</option>
+                            <option value="">CSB Bank</option>
+                            <option value="">City Union Bank</option>
+                            <option value="">DCB Bank</option>
+                            <option value="">Dhanlaxmi Bank</option>
+                            <option value="">Federal Bank</option>
+                            <option value="">HDFC Bank</option>
+                            <option value="">Indian Bank</option>
+                            <option value="">Indian Overseas Bank</option>
+                            <option value="">ICICI Bank</option>
+                            <option value="">IndusInd Bank</option>
+                            <option value="">IDBI Bank</option>
+                            <option value="">IDFC FIRST Bank</option>
+                            <option value="">Jammu &amp; Kashmir Bank</option>
+                            <option value="">Karnataka Bank</option>
+                            <option value="">Karur Vysya Bank</option>
+                            <option value="">Kotak Mahindra Bank</option>
+                            <option value="">Nainital bank</option>
+                            <option value="">Punjab and Sind Bank</option>
+                            <option value="">Punjab National Bank</option>
+                            <option value="">State Bank of India</option>
+                            <option value="">UCO Bank</option>
+                            <option value="">Union Bank of India</option>
+                            <option value="">RBL Bank</option>
+                            <option value="">South Indian Bank</option>
+                            <option value="">Tamilnad Mercantile Bank</option>
+                            <option value="">YES Bank</option>
                         </select>
+                        <div class="error-message" id="bank-error">Please select bank name</div>
+
                     </div>
                     <div class="col-md-6 form-group">
-                        <label for="Bank">Primary Bank Account</label><span style="color: red;">*</span>
-                        <input type="text" name="Primary" id="Primary-Bank" class="form-control"
+                        <label for="primary">Primary Bank Account</label><span style="color: red;">*</span>
+                        <input type="text" name="Primary" id="primary" class="form-control"
                             placeholder="Primary Bank Account" required>
+                            <div class="error-message" id="primary-error">Please enter primary bank account</div>
+
                     </div>
+
                 </div>
 
                 <div class="form-floating mb-3">
@@ -224,12 +235,12 @@
     </div>
     </form>
 
-    
+
 
     <script>
         $(document).ready(function () {
             // Clear existing error messages
-            $('.error-message').hide();
+            // $('.error-message').hide();
 
 
             $("#btnSubmit").on("click", function () {
@@ -239,12 +250,36 @@
                 // Clear existing error messages
                 $('.error-message').hide();
 
+                // Validate desired loan amount type
+                var desired = $('#desired').val();
+                if (desired === '') {
+                    $('#desired-error').show();
+                    isValid = false;
+                }
+
                 // Validate name
                 var name = $('#name').val();
                 if (name === '') {
                     $('#name-error').show();
                     isValid = false;
                 }
+
+                // Validate city
+                var city = $('#city').val();
+                if (city === '') {
+                    $('#city-error').show();
+                    isValid = false;
+                }
+
+                // Validate employment status
+                var city = $('#employment').val();
+                if (city === '') {
+                    $('#employment-error').show();
+                    isValid = false;
+                }
+
+
+
                 //email
                 var email = $('#email').val();
                 if (email === '') {
@@ -254,18 +289,61 @@
                     isValid = false;
                 }
 
-                // Validate desired loan amount type
-                var loanType = $('#desired').val();
-                if (loanType === '') {
-                    $('#loan-error').show();
+                // Validate zipcode
+                var zipcode = $('#zipcode').val();
+                if (zipcode === '') {
+                    $('#zipcode-error').show();
                     isValid = false;
                 }
 
-                // Validate number
+                // Validate monthly
+                var monthly = $('#monthly').val();
+                if (monthly === '') {
+                    $('#monthly-error').show();
+                    isValid = false;
+                }
+
+                // Validate tenure
+                var tenure = $('#tenure').val();
+                if (tenure === '') {
+                    $('#tenure-error').show();
+                    isValid = false;
+                }
+
+                // Validate address
+                var address = $('#address').val();
+                if (address === '') {
+                    $('#address-error').show();
+                    isValid = false;
+                }
+                // Validate bank
+                var bank = $('#bank').val();
+                if (bank === '') {
+                    $('#bank-error').show();
+                    isValid = false;
+                }
+
+                // Validate primary bank
+                var primary = $('#primary').val();
+                if (primary === '') {
+                    $('#primary-error').show();
+                    isValid = false;
+                }
+
+                // Validate primary bank
                 var number = $('#number').val();
                 if (number === '') {
-                    $("#phone-error").text('*Please Enter Mobile');
-                    $("#phone-error").css('color', 'red');
+                    $('#number-error').show();
+                    isValid = false;
+                }
+
+
+                // Validate number
+                var number = $('#phone').val();
+                if (number === '') {
+                    // $("#phone-error").text('*Please Enter Mobile');
+                    // $("#phone-error").css('color', 'red');
+                    $('#phone-error').show();
                     return false;
                 }
                 else {
@@ -275,7 +353,7 @@
                     } else {
                         console.log("not true");
                         $("#phone-error").show();
-                        $("#phone-error").text('*Please Enter Valid Mobile number');
+                        $("#phone-error").text('*Please enter valid mobile number');
                         $("#phone-error").css('color', 'red');
                         return false;
                     }
@@ -283,12 +361,6 @@
 
                 }
 
-                // Validate zipcode
-                var zipcode = $('#zipcode').val();
-                if (zipcode === '') {
-                    $('#zipcode-error').show();
-                    isValid = false;
-                }
 
 
                 // else {
@@ -323,19 +395,14 @@
                 // return true;
 
 
-                // Validate city
-                var city = $('#city').val();
-                if (city === '') {
-                    $('#city-error').show();
-                    isValid = false;
-                }
 
-                
+
+
 
                 // Validate message
-                var message = $('#message').val();
+                var message = $('#comment').val();
                 if (message === '') {
-                    $('#message-error').show();
+                    $('#comment-error').show();
                     isValid = false;
                 }
 
@@ -344,6 +411,8 @@
 
                     var name = $('#name').val();
                     var number = $('#number').val();
+                    var tenure = $('#tenure').val();
+                    var employment = $('#employment').val();
                     var zipcode = $('#zipcode').val();
                     var desired = $('#desired').val();
                     var email = $('#email').val();
