@@ -48,10 +48,10 @@
                         <label for="Desired Loan">Desired Loan Amount</label><span style="color: red;">*</span>
                         <select id="desired" class="form-control">
                             <option value="">Select Desired Loan Amount</option>
-                            <option value="">0-3L</option>
-                            <option value="">3L-5L</option>
-                            <option value="">5L-10L</option>
-                            <option value="">More $ Above 10L</option>
+                            <option value="3l">0-3L</option>
+                            <option value="5l">3L-5L</option>
+                            <option value="7l">5L-10L</option>
+                            <option value="9l">More $ Above 10L</option>
                         </select>
                         <div class="error-message" id="desired-error">Please secect a desired loan amount</div>
                     </div>
@@ -60,12 +60,12 @@
                         <label for="Monthly Income">Monthly Income</label><span style="color: red;">*</span>
                         <select id="monthly" class="form-control">
                             <option value="">Select Monthly Income₹</option>
-                            <option value="">0 - ₹20,000</option>
-                            <option value="">₹20,000 - 1L</option>
-                            <option value="">1L - 5L</option>
-                            <option value="">5L - 10L</option>
-                            <option value="">10L - 15L</option>
-                            <option value="">more $ above 15L</option>
+                            <option value="20">0 - ₹20,000</option>
+                            <option value="30">₹20,000 - 1L</option>
+                            <option value="40">1L - 5L</option>
+                            <option value="50">5L - 10L</option>
+                            <option value="60">10L - 15L</option>
+                            <option value="70">more $ above 15L</option>
                         </select>
                         <div class="error-message" id="monthly-error">Please select monthly income</div>
                     </div>
@@ -75,9 +75,9 @@
                         <label for="Tenure">Employment Status</label><span style="color: red;">*</span>
                         <select id="employment" class="form-control">
                             <option value=""> Please Select</option>
-                            <option value="">Salaried</option>
-                            <option value="">Self Employed Business</option>
-                            <option value="">Self Employed Professional</option>
+                            <option value="2">Salaried</option>
+                            <option value="3">Self Employed Business</option>
+                            <option value="4">Self Employed Professional</option>
                         </select>
                         <div class="error-message" id="employment-error">Please select a status</div>
                     </div>
@@ -85,11 +85,11 @@
                         <label for="Tenure">Tenure</label><span style="color: red;">*</span>
                         <select id="tenure" class="form-control">
                             <option value="">Select</option>
-                            <option value="">1 year</option>
-                            <option value="">2 year</option>
-                            <option value="">3 year</option>
-                            <option value="">4 year</option>
-                            <option value="">5 year</option>
+                            <option value="1">1 year</option>
+                            <option value="1">2 year</option>
+                            <option value="1">3 year</option>
+                            <option value="1">4 year</option>
+                            <option value="1">5 year</option>
                         </select>
                         <div class="error-message" id="tenure-error">Please select tenure</div>
                     </div>
@@ -105,7 +105,7 @@
                         <label for="phone_number">Phone Number</label><span style="color: red;">*</span>
                         <input type="tel" name="phone_no" id="phone" class="form-control"
                             placeholder="Enter your phone number" required maxlength="10">
-                        <div class="error-message" id="phone-error">Please enter a valid phone number.</div>
+                        <div class="error-message" id="phone-error">Please enter 10 digit number</div>
                     </div>
                 </div>
                 <div class="form-row">
@@ -141,7 +141,7 @@
 
                 </div>
                 <div class="form-row">
-                    <div class="col-md-6 elementor-field-radio">
+                    <!-- <div class="col-md-6 elementor-field-radio">
                         <Label id="form-field">Do you own or rent your home?</Label><span style="color: red;">*</span>
                         <div class="elementor-field">
                             <span class="elementor-field-option"><input type="radio" value="Owned" id="form-field"
@@ -153,62 +153,87 @@
                                 <label for="form-field">Rented </label>
                             </span>
                         </div>
+                        <div class="error-message" id="ownership-error">Please select whether you own or rent your home.
+                        </div>
+                    </div> -->
 
-                    </div>
                     <div class="col-md-6 elementor-field-radio">
-                        <Label id="form-field">Do you need to sell your home before buying a new one?</Label><span
-                            style="color: red;">*</span>
+                        <label id="form-field">Do you own or rent your home?</label><span style="color: red;">*</span>
                         <div class="elementor-field">
-                            <span class="elementor-field-option"><input type="radio" value="Owned" id="form-field"
+                            <span class="elementor-field-option">
+                                <input type="radio" value="Owned" name="ownership" id="owned-radio"
                                     aria-required="true">
-                                <label for="form-field">Yes </label>
+                                <label for="owned-radio">Owned</label>
                             </span>
-                            <span class="elementor-field-option"><input type="radio" value="Rented" id="form-field"
+                            <span class="elementor-field-option">
+                                <input type="radio" value="Rented" name="ownership" id="rented-radio"
                                     aria-required="true">
-                                <label for="form-field">No </label>
+                                <label for="rented-radio">Rented</label>
                             </span>
                         </div>
+                        <div class="error-message" id="ownership-error">Please select whether you own or rent your home.
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-6 elementor-field-radio">
+                        <label id="form-field">Do you need to sell your home before buying a new one?</label><span
+                            style="color: red;">*</span>
+                        <div class="elementor-field">
+                            <span class="elementor-field-option">
+                                <input type="radio" name="sell-home" value="Owned" id="form-field-owned"
+                                    aria-required="true">
+                                <label for="form-field-owned">Yes</label>
+                            </span>
+                            <span class="elementor-field-option">
+                                <input type="radio" name="sell-home" value="Rented" id="form-field-rented"
+                                    aria-required="true">
+                                <label for="form-field-rented">No</label>
+                            </span>
+                        </div>
+                        <div class="error-message" id="sell-home-error">Please select an option.</div>
 
                     </div>
+
                 </div>
                 <div class="form-row">
                     <div class="col-md-6 form-group">
                         <label for="bank">Select Bank Name</label><span style="color: red;">*</span>
                         <select id="bank" class="form-control">
                             <option value="">Select Bank </option>
-                            <option value="">Axis Bank</option>
-                            <option value="">Bandhan Bank</option>
-                            <option value="">Bank of Baroda</option>
-                            <option value="">Bank of India</option>
-                            <option value="">Bank of Maharashtra</option>
-                            <option value="">Canara Bank</option>
-                            <option value="">Central Bank of India</option>
-                            <option value="">CSB Bank</option>
-                            <option value="">City Union Bank</option>
-                            <option value="">DCB Bank</option>
-                            <option value="">Dhanlaxmi Bank</option>
-                            <option value="">Federal Bank</option>
-                            <option value="">HDFC Bank</option>
-                            <option value="">Indian Bank</option>
-                            <option value="">Indian Overseas Bank</option>
-                            <option value="">ICICI Bank</option>
-                            <option value="">IndusInd Bank</option>
-                            <option value="">IDBI Bank</option>
-                            <option value="">IDFC FIRST Bank</option>
-                            <option value="">Jammu &amp; Kashmir Bank</option>
-                            <option value="">Karnataka Bank</option>
-                            <option value="">Karur Vysya Bank</option>
-                            <option value="">Kotak Mahindra Bank</option>
-                            <option value="">Nainital bank</option>
-                            <option value="">Punjab and Sind Bank</option>
-                            <option value="">Punjab National Bank</option>
-                            <option value="">State Bank of India</option>
-                            <option value="">UCO Bank</option>
-                            <option value="">Union Bank of India</option>
-                            <option value="">RBL Bank</option>
-                            <option value="">South Indian Bank</option>
-                            <option value="">Tamilnad Mercantile Bank</option>
-                            <option value="">YES Bank</option>
+                            <option value="12">Axis Bank</option>
+                            <option value="12">Bandhan Bank</option>
+                            <option value="12">Bank of Baroda</option>
+                            <option value="12">Bank of India</option>
+                            <option value="12">Bank of Maharashtra</option>
+                            <option value="12">Canara Bank</option>
+                            <option value="12">Central Bank of India</option>
+                            <option value="12">CSB Bank</option>
+                            <option value="12">City Union Bank</option>
+                            <option value="12">DCB Bank</option>
+                            <option value="12">Dhanlaxmi Bank</option>
+                            <option value="12">Federal Bank</option>
+                            <option value="12">HDFC Bank</option>
+                            <option value="12">Indian Bank</option>
+                            <option value="12">Indian Overseas Bank</option>
+                            <option value="12">ICICI Bank</option>
+                            <option value="12">IndusInd Bank</option>
+                            <option value="12">IDBI Bank</option>
+                            <option value="12">IDFC FIRST Bank</option>
+                            <option value="12">Jammu &amp; Kashmir Bank</option>
+                            <option value="12">Karnataka Bank</option>
+                            <option value="12">Karur Vysya Bank</option>
+                            <option value="12">Kotak Mahindra Bank</option>
+                            <option value="12">Nainital bank</option>
+                            <option value="12">Punjab and Sind Bank</option>
+                            <option value="12">Punjab National Bank</option>
+                            <option value="12">State Bank of India</option>
+                            <option value="12">UCO Bank</option>
+                            <option value="12">Union Bank of India</option>
+                            <option value="12">RBL Bank</option>
+                            <option value="12">South Indian Bank</option>
+                            <option value="12">Tamilnad Mercantile Bank</option>
+                            <option value="12">YES Bank</option>
                         </select>
                         <div class="error-message" id="bank-error">Please select bank name</div>
 
@@ -217,7 +242,7 @@
                         <label for="primary">Primary Bank Account</label><span style="color: red;">*</span>
                         <input type="text" name="Primary" id="primary" class="form-control"
                             placeholder="Primary Bank Account" required>
-                            <div class="error-message" id="primary-error">Please enter primary bank account</div>
+                        <div class="error-message" id="primary-error">Please enter primary bank account</div>
 
                     </div>
 
@@ -227,6 +252,7 @@
                     <label for="floatingTextarea">Comments or questions:</label><span style="color: red;">*</span>
                     <textarea class="form-control" placeholder="Leave a comments or questions" rows="1"
                         id="comments"></textarea>
+                    <div class="error-message" id="comments-error">Please enter your comment or question.</div>
                 </div>
                 <div class="text-center">
                     <button type="button" id="btnSubmit" class="btn btn-primary">Submit</button>
@@ -239,61 +265,23 @@
 
     <script>
         $(document).ready(function () {
-            // Clear existing error messages
-            // $('.error-message').hide();
 
+            $('.error-message').hide();
 
             $("#btnSubmit").on("click", function () {
-
-                var isValid = true;
-
                 // Clear existing error messages
-                $('.error-message').hide();
+                $('.error-message').show();
+                var isValid = false;
 
                 // Validate desired loan amount type
                 var desired = $('#desired').val();
                 if (desired === '') {
                     $('#desired-error').show();
                     isValid = false;
-                }
+                } else {
+                    $('#desired-error').hide();
+                    isValid = true;
 
-                // Validate name
-                var name = $('#name').val();
-                if (name === '') {
-                    $('#name-error').show();
-                    isValid = false;
-                }
-
-                // Validate city
-                var city = $('#city').val();
-                if (city === '') {
-                    $('#city-error').show();
-                    isValid = false;
-                }
-
-                // Validate employment status
-                var city = $('#employment').val();
-                if (city === '') {
-                    $('#employment-error').show();
-                    isValid = false;
-                }
-
-
-
-                //email
-                var email = $('#email').val();
-                if (email === '') {
-                    // $("#email-error").text('*Please Enter email');
-                    // $("#email-error").css('color', 'red');
-                    $('#email-error').show();
-                    isValid = false;
-                }
-
-                // Validate zipcode
-                var zipcode = $('#zipcode').val();
-                if (zipcode === '') {
-                    $('#zipcode-error').show();
-                    isValid = false;
                 }
 
                 // Validate monthly
@@ -301,6 +289,20 @@
                 if (monthly === '') {
                     $('#monthly-error').show();
                     isValid = false;
+                } else {
+                    $('#monthly-error').hide();
+                    isValid = true;
+                }
+
+                // Validate employment status
+                var employment = $('#employment').val();
+                if (employment === '') {
+                    $('#employment-error').show();
+                    isValid = false;
+                } else {
+                    $('#employment-error').hide();
+                    isValid = true;
+
                 }
 
                 // Validate tenure
@@ -308,6 +310,47 @@
                 if (tenure === '') {
                     $('#tenure-error').show();
                     isValid = false;
+                } else {
+                    $('#tenure-error').hide();
+                    isValid = true;
+                }
+
+
+                // Validate name
+                var name = $('#name').val();
+                var namePattern = /^[A-Za-z\s]+$/;
+                if (!namePattern.test(name)) {
+                    $('#name-error').show();
+                    isValid = false;
+                }
+                else {
+                    $('#name-error').hide();
+                    isValid = true;
+                }
+
+                // Validate mobile number
+                var phone = $('#phone').val();
+                var phonePattern = /^(0|91)?[6-9][0-9]{9}$/;
+                if (!phonePattern.test(phone)) {
+                    $('#phone-error').show();
+                    isValid = false;
+                }
+                else {
+                    $('#phone-error').hide();
+                    isValid = true;
+                }
+
+                //email pattern
+                var email = $('#email').val();
+                // Use a regular expression to check if the email format is valid
+                var emailPattern = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+                if (!emailPattern.test(email)) {
+                    $('#email-error').show();
+                    isValid = false;
+                }
+                else {
+                    $('#email-error').hide();
+                    isValid = true;
                 }
 
                 // Validate address
@@ -316,11 +359,72 @@
                     $('#address-error').show();
                     isValid = false;
                 }
-                // Validate bank
+                else {
+                    $('#address-error').hide();
+                    isValid = true;
+                }
+
+                // Validate city
+                var city = $('#city').val();
+                if (city === '') {
+                    $('#city-error').show();
+                    isValid = false;
+                }
+                else {
+                    $('#city-error').hide();
+                    isValid = true;
+                }
+
+                // Validate postal/zip code
+
+                var zipcode = $('#zipcode').val();
+                var zipcodePattern = /^\d{5}$/;
+                if (!zipcodePattern.test(zipcode)) {
+                    $('#zipcode-error').show();
+                    isValid = false;
+                }
+                else {
+                    $('#zipcode-error').hide();
+                    isValid = true;
+                }
+
+
+                // Validate radio button selection
+                var selectedOwnership = $("input[name='ownership']:checked").val();
+
+                if (!selectedOwnership) {
+                    $('#ownership-error').show();
+                    isValid = false; // Prevent form submission
+                }
+                else {
+                    $('#ownership-error').hide();
+                    isValid = true;
+                }
+
+
+
+                // Validate radio button selection
+                var selectedOption = $("input[name='sell-home']:checked").val();
+
+                if (!selectedOption) {
+                    $('#sell-home-error').show();
+                    isValid = false; // Prevent form submission
+                }
+                else {
+                    $('#sell-home-error').hide();
+                    isValid = true;
+                }
+
+
+                // Validate bank name selection
                 var bank = $('#bank').val();
                 if (bank === '') {
                     $('#bank-error').show();
                     isValid = false;
+                }
+                else {
+                    $('#bank-error').hide();
+                    isValid = true;
                 }
 
                 // Validate primary bank
@@ -329,110 +433,38 @@
                     $('#primary-error').show();
                     isValid = false;
                 }
-
-                // Validate primary bank
-                var number = $('#number').val();
-                if (number === '') {
-                    $('#number-error').show();
-                    isValid = false;
-                }
-
-
-                // Validate number
-                var number = $('#phone').val();
-                if (number === '') {
-                    // $("#phone-error").text('*Please Enter Mobile');
-                    // $("#phone-error").css('color', 'red');
-                    $('#phone-error').show();
-                    return false;
-                }
                 else {
-                    const mobileNumberPattern = /^[6-9]\d{9}$/;
-                    if (mobileNumberPattern.test(number)) {
-                        // $("#mobileError").remove();
-                    } else {
-                        console.log("not true");
-                        $("#phone-error").show();
-                        $("#phone-error").text('*Please enter valid mobile number');
-                        $("#phone-error").css('color', 'red');
-                        return false;
-                    }
-                    $("#phone-error").remove();
-
+                    $('#primary-error').hide();
+                    isValid = true;
                 }
 
+                $('#comments-error').hide();
 
+                // Validate comment
+                var comment = $('#comments').val().trim();
 
-                // else {
-                //     const emailPattern = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
-                //     if (!emailPattern.test(email)) {
-
-                //     }
-                //     else {
-                //         // Display an error message and prevent form submission
-                //         console.log("not true");
-                //         $("#email-error").show();
-                //         $("#email-error").text("Please enter a valid email address.");
-                //         $("#email-error").css('color', 'red');
-                //         // $("#email").focus(); // Set focus back to the input field
-                //         return false; // Prevent form submission
-                //     }
-
-                //     // If the email is valid, clear any previous error message
-                //     $("#email-error").remove("");
-
-                // }
-
-                // var email = $("#email").val();
-                // var emailPattern = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
-                // if (!emailPattern.test(email)) {
-                //     $("#email-error").text("Please enter a valid email address.");
-                //     $("#email").focus();
-                //     $("#email-error").css('color', 'red');
-                //     return false;
-                // }
-                // $("#email-error").text("");
-                // return true;
-
-
-
-
-
-
-                // Validate message
-                var message = $('#comment').val();
-                if (message === '') {
-                    $('#comment-error').show();
-                    isValid = false;
+                if (comment === '') {
+                    $('#comments-error').show();
+                    isValid= false; // Prevent form submission
                 }
-
-                // If all fields are valid, submit the form
-                if (isValid) {
-
-                    var name = $('#name').val();
-                    var number = $('#number').val();
-                    var tenure = $('#tenure').val();
-                    var employment = $('#employment').val();
-                    var zipcode = $('#zipcode').val();
-                    var desired = $('#desired').val();
-                    var email = $('#email').val();
-                    var city = $('#city').val();
-                    var state = $('#stateName').val();
-                    var message = $('#comments').val();
-
-
-                    // $('#loan-form').submit();
+                else{
+                    $('#comments-error').hide();
+                    isValid= true;
                 }
 
             });
 
-            console.log("jquery run");
 
 
         });
 
     </script>
 
+
+    <script>
+
+
+    </script>
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
